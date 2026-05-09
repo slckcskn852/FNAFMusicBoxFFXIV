@@ -1,6 +1,13 @@
 # FNAF Music Box - FFXIV Dalamud Plugin
 
-A Dalamud overlay plugin that recreates the Five Nights at Freddy's 2 music box winding minigame experience within Final Fantasy XIV.
+A Dalamud overlay plugin that recreates the Five Nights at Freddy's 2 music box winding minigame experience within XIV.
+
+## Installation
+
+1. Add `https://slckcskn852.github.io/FNAFMusicBoxFFXIV/custom-repo.json` as a custom repository in Dalamud
+2. Search FNAF Music Box in All Plugins
+3. Press install
+4. Use `/musicbox`
 
 ## Features
 
@@ -13,28 +20,6 @@ A Dalamud overlay plugin that recreates the Five Nights at Freddy's 2 music box 
 - **Pause Control**: Pause/resume the meter and audio from the settings menu
 - **Customizable Settings**: Adjust opacity, scale, wind speed, decay speed, and volume
 - **Persistent Configuration**: All settings are saved and restored between sessions
-
-## Installation
-
-1. Download the latest release of `FNAFMusicBoxFFXIV.dll`
-2. Place the DLL and accompanying assets (`musicbox.mp3`, `failstate.mp3`, `windup.mp3`, `windupmusicbutton.png`, `fail.png`) in your Dalamud plugins folder
-3. Reload plugins or restart the game
-4. Use `/musicbox` command to toggle the overlay
-
-## Custom Repository
-
-If you want this plugin to be installable through a custom Dalamud repo, host the plugin release zip and a repository JSON file publicly, then add that JSON URL in XIVLauncher under Dalamud's custom repository settings.
-
-This repository includes:
-
-- `DalamudPackager.targets` to generate `latest.zip` in Release builds
-- `custom-repo.json` as a starter repo entry for GitHub-hosted releases
-
-To host it on GitHub Pages, publish the file at `docs/custom-repo.json` and enable Pages for the repository with `docs/` as the site source. The endpoint will be:
-
-`https://slckcskn852.github.io/FNAFMusicBoxFFXIV/custom-repo.json`
-
-Before publishing, update the `DownloadLinkInstall`, `DownloadLinkUpdate`, and `LastUpdate` fields in `custom-repo.json` to match your actual release.
 
 ## Usage
 
@@ -81,7 +66,6 @@ And two image assets:
 
 ## Requirements
 
-- FFXIV with Dalamud launcher
 - XIVLauncher
 - .NET 10.0 (or newer)
 
@@ -106,12 +90,16 @@ Output will be in `dist/FNAFMusicBoxFFXIV.dll`
 
 ## Author
 
-Created for FFXIV Dalamud by ScSyn
+Created for Dalamud by ScSyn
 
 ## License
 
-This project is provided as-is for personal use with FFXIV.
+This project is provided as-is for personal use with Dalamud.
 
 ## Disclaimer
 
-This plugin is not affiliated with Square Enix, Bandai Namco Entertainment, or Scott Cawthon. Five Nights at Freddy's is a trademark of Scott Cawthon. Use at your own risk.
+This plugin is not affiliated with Square Enix or Scott Cawthon. Five Nights at Freddy's is a trademark of Scott Cawthon. This plugin is a fan-made project and is not affiliated with Scott Cawthon. Sounds and textures from Five Nights at Freddy's 2 are used under fair use/fan-content expectations and remain the property of the original creator.
+
+## AI Disclosure
+
+Built with AI using Copilot + Google Gemini.

@@ -30,6 +30,10 @@ This repository includes:
 - `DalamudPackager.targets` to generate `latest.zip` in Release builds
 - `custom-repo.json` as a starter repo entry for GitHub-hosted releases
 
+To host it on GitHub Pages, publish the file at `docs/custom-repo.json` and enable Pages for the repository with `docs/` as the site source. The endpoint will be:
+
+`https://slckcskn852.github.io/FNAFMusicBoxFFXIV/custom-repo.json`
+
 Before publishing, update the `DownloadLinkInstall`, `DownloadLinkUpdate`, and `LastUpdate` fields in `custom-repo.json` to match your actual release.
 
 ## Usage

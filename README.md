@@ -114,4 +114,4 @@ This project is provided as-is for personal use with FFXIV.
 
 ## Disclaimer
 
-This plugin is not affiliated with Square Enix, Bandai Namco Entertainment, or Scott Cawthon. Five Nights at Freddy's is a trademark of Scott Cawthon. Use at your own risk.
+This plugin is not affiliated with Square Enix or Scott Cawthon. Five Nights at Freddy's is a trademark of Scott Cawthon. This plugin is a fan-made project and is not affiliated with Scott Cawthon. Sounds and textures from Five Nights at Freddy's 2 are used under fair use/fan-content expectations and remain the property of the original creator.

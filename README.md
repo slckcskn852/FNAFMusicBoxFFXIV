@@ -16,9 +16,9 @@ A Dalamud overlay plugin that recreates the Five Nights at Freddy's 2 music box 
 
 ## Installation
 
-1. Download the latest release of `FNAFMusicBoxFFXIV.dll`
-2. Place the DLL and accompanying assets (`musicbox.mp3`, `failstate.mp3`, `windup.mp3`, `windupmusicbutton.png`, `fail.png`) in your Dalamud plugins folder
-3. Reload plugins or restart the game
+1. Add `https://slckcskn852.github.io/FNAFMusicBoxFFXIV/custom-repo.json` as a custom repository in Dalamud
+2. Search FNAF Music Box in All Plugins
+3. Press install
 4. Use `/musicbox` command to toggle the overlay
 
 ## Custom Repository

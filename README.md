@@ -1,6 +1,13 @@
 # FNAF Music Box - FFXIV Dalamud Plugin
 
-A Dalamud overlay plugin that recreates the Five Nights at Freddy's 2 music box winding minigame experience within Final Fantasy XIV.
+A Dalamud overlay plugin that recreates the Five Nights at Freddy's 2 music box winding minigame experience within XIV.
+
+## Installation
+
+1. Add `https://slckcskn852.github.io/FNAFMusicBoxFFXIV/custom-repo.json` as a custom repository in Dalamud
+2. Search FNAF Music Box in All Plugins
+3. Press install
+4. Use `/musicbox`
 
 ## Features
 
@@ -13,28 +20,6 @@ A Dalamud overlay plugin that recreates the Five Nights at Freddy's 2 music box 
 - **Pause Control**: Pause/resume the meter and audio from the settings menu
 - **Customizable Settings**: Adjust opacity, scale, wind speed, decay speed, and volume
 - **Persistent Configuration**: All settings are saved and restored between sessions
-
-## Installation
-
-1. Add `https://slckcskn852.github.io/FNAFMusicBoxFFXIV/custom-repo.json` as a custom repository in Dalamud
-2. Search FNAF Music Box in All Plugins
-3. Press install
-4. Use `/musicbox` command to toggle the overlay
-
-## Custom Repository
-
-If you want this plugin to be installable through a custom Dalamud repo, host the plugin release zip and a repository JSON file publicly, then add that JSON URL in XIVLauncher under Dalamud's custom repository settings.
-
-This repository includes:
-
-- `DalamudPackager.targets` to generate `latest.zip` in Release builds
-- `custom-repo.json` as a starter repo entry for GitHub-hosted releases
-
-To host it on GitHub Pages, publish the file at `docs/custom-repo.json` and enable Pages for the repository with `docs/` as the site source. The endpoint will be:
-
-`https://slckcskn852.github.io/FNAFMusicBoxFFXIV/custom-repo.json`
-
-Before publishing, update the `DownloadLinkInstall`, `DownloadLinkUpdate`, and `LastUpdate` fields in `custom-repo.json` to match your actual release.
 
 ## Usage
 
@@ -81,7 +66,6 @@ And two image assets:
 
 ## Requirements
 
-- FFXIV with Dalamud launcher
 - XIVLauncher
 - .NET 10.0 (or newer)
 

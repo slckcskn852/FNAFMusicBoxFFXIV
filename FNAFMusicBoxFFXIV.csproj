@@ -6,7 +6,7 @@
     <Author>ScSyn</Author>
     <Description>FFXIV Dalamud overlay inspired by the FNAF 2 music box winding minigame.</Description>
     <Punchline>Wind the box before it runs out.</Punchline>
-    <RepoUrl>https://example.com/FNAFMusicBoxFFXIV</RepoUrl>
+    <RepoUrl>https://github.com/slckcskn852/FNAFMusicBoxFFXIV</RepoUrl>
     <OutputPath>dist\</OutputPath>
     <AssemblyName>FNAFMusicBoxFFXIV</AssemblyName>
     <RootNamespace>FNAFMusicBoxFFXIV</RootNamespace>

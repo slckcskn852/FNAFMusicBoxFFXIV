@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "J1kSBmlqKb8=",
+  "dgSpecHash": "x1G3HmI7Z2Q=",
   "success": true,
-  "projectFilePath": "D:\\Projects\\FNAFMusicBoxFFXIV\\FNAFMusicBoxFFXIV.csproj",
+  "projectFilePath": "d:\\Projects\\FNAFMusicBoxFFXIV\\FNAFMusicBoxFFXIV.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\slckc\\.nuget\\packages\\dalamudpackager\\15.0.0\\dalamudpackager.15.0.0.nupkg.sha512",
     "C:\\Users\\slckc\\.nuget\\packages\\dotnet.reproduciblebuilds\\1.2.39\\dotnet.reproduciblebuilds.1.2.39.nupkg.sha512",

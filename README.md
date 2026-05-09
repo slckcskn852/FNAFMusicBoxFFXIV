@@ -21,6 +21,17 @@ A Dalamud overlay plugin that recreates the Five Nights at Freddy's 2 music box 
 3. Reload plugins or restart the game
 4. Use `/musicbox` command to toggle the overlay
 
+## Custom Repository
+
+If you want this plugin to be installable through a custom Dalamud repo, host the plugin release zip and a repository JSON file publicly, then add that JSON URL in XIVLauncher under Dalamud's custom repository settings.
+
+This repository includes:
+
+- `DalamudPackager.targets` to generate `latest.zip` in Release builds
+- `custom-repo.json` as a starter repo entry for GitHub-hosted releases
+
+Before publishing, update the `DownloadLinkInstall`, `DownloadLinkUpdate`, and `LastUpdate` fields in `custom-repo.json` to match your actual release.
+
 ## Usage
 
 ### Commands

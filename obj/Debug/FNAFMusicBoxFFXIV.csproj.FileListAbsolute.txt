@@ -19,3 +19,4 @@ d:\Projects\FNAFMusicBoxFFXIV\obj\Debug\FNAFMusi.2A16C7AA.Up2Date
 d:\Projects\FNAFMusicBoxFFXIV\dist\windup.mp3
 d:\Projects\FNAFMusicBoxFFXIV\dist\windupmusicbutton.png
 d:\Projects\FNAFMusicBoxFFXIV\dist\fail.png
+d:\Projects\FNAFMusicBoxFFXIV\obj\Debug\FNAFMusicBoxFFXIV.sourcelink.json

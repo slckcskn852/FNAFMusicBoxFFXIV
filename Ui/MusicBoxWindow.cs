@@ -5,6 +5,7 @@ using Dalamud.Plugin.Services;
 using FNAFMusicBoxFFXIV.Model;
 using FNAFMusicBoxFFXIV.Audio;
 using System.Numerics;
+using System;
 
 namespace FNAFMusicBoxFFXIV.Ui;
 
@@ -12,7 +13,7 @@ public sealed class MusicBoxWindow : Window
 {
     private const float MeterPadding = 14f;
     private const float BaseWidth = 430f;
-    private const float BaseHeight = 190f;
+    private const float BaseHeight = 145f;
     private const float WindButtonTopOffset = 31f;
     private const float WindButtonHeight = 86f;
     private const float SettingsPopupWidth = 230f;
@@ -41,10 +42,13 @@ public sealed class MusicBoxWindow : Window
 
         RespectCloseHotkey = false;
         BgAlpha = configuration.Opacity;
-        Position = configuration.WindowPosition;
-        Size = configuration.WindowSize;
+        
+        var eff = GetEffectiveScale();
+        Position = configuration.WindowPosition * eff;
         PositionCondition = ImGuiCond.FirstUseEver;
-        SizeCondition = ImGuiCond.FirstUseEver;
+        
+        // We no longer set SizeCondition to FirstUseEver. 
+        // We will force it dynamically in UpdateWindowBehavior.
     }
 
     public override void Draw()
@@ -57,7 +61,7 @@ public sealed class MusicBoxWindow : Window
         var drawList = ImGui.GetWindowDrawList();
         var windowPos = ImGui.GetWindowPos();
         var panelSize = GetScaledPanelSize();
-        var scale = MathF.Max(0.75f, configuration.UiScale);
+        var scale = GetEffectiveScale();
         var contentTop = MathF.Max(MeterPadding, ((panelSize.Y - (WindButtonHeight * scale)) * 0.5f) - (WindButtonTopOffset * scale));
         var contentPos = windowPos + new Vector2(MeterPadding, contentTop);
 
@@ -80,14 +84,24 @@ public sealed class MusicBoxWindow : Window
             | (configuration.LockPosition ? ImGuiWindowFlags.NoMove : ImGuiWindowFlags.None);
 
         BgAlpha = configuration.Opacity;
+
+        // Force the ImGui window bounds to perfectly wrap the dynamically scaled content
+        Size = GetScaledPanelSize();
+        SizeCondition = ImGuiCond.Always;
     }
 
     private Vector2 GetScaledPanelSize()
     {
-        var width = MathF.Max(BaseWidth, configuration.WindowSize.X) * MathF.Max(0.75f, configuration.UiScale);
-        var height = MathF.Max(BaseHeight, configuration.WindowSize.Y) * MathF.Max(0.75f, configuration.UiScale);
+        var eff = GetEffectiveScale();
+        // Ignore the old saved config size and lock strictly to the baseline ratio
+        return new Vector2(BaseWidth * eff, BaseHeight * eff);
+    }
 
-        return new Vector2(width, height);
+    private float GetEffectiveScale()
+    {
+        // configuration.UiScale represents the user's chosen scale at 1440p baseline.
+        var dpiScale = configuration.DpiHeight / 1440f;
+        return MathF.Max(0.75f, configuration.UiScale * dpiScale);
     }
 
     private void DrawBackdrop(ImDrawListPtr drawList, Vector2 windowPos, Vector2 panelSize)
@@ -114,7 +128,7 @@ public sealed class MusicBoxWindow : Window
 
     private void DrawPrompt(ImDrawListPtr drawList, Vector2 origin, Vector2 panelSize)
     {
-        var scale = MathF.Max(0.75f, configuration.UiScale);
+        var scale = GetEffectiveScale();
         var center = origin + new Vector2(62f * scale, 54f * scale);
         var radius = 34f * scale;
         var ratio = Math.Clamp(stateMachine.ProgressRatio, 0f, 1f);
@@ -148,7 +162,7 @@ public sealed class MusicBoxWindow : Window
 
     private void DrawWindButton(ImDrawListPtr drawList, Vector2 origin, Vector2 panelSize)
     {
-        var scale = MathF.Max(0.75f, configuration.UiScale);
+        var scale = GetEffectiveScale();
         var boxMin = origin + new Vector2(130f * scale, 14f * scale);
         var boxSize = new Vector2(248f * scale, 86f * scale);
         var boxMax = boxMin + boxSize;
@@ -208,6 +222,7 @@ public sealed class MusicBoxWindow : Window
         var decaySpeed = configuration.DecaySpeed;
         var volume = configuration.Volume;
         var isPaused = stateMachine.IsPaused;
+        var dpi = configuration.DpiHeight;
 
         ImGui.TextUnformatted("Overlay Settings");
         ImGui.Separator();
@@ -242,6 +257,29 @@ public sealed class MusicBoxWindow : Window
         configuration.WindSpeed = windSpeed;
         configuration.DecaySpeed = decaySpeed;
         configuration.Volume = volume;
+        
+        ImGui.Spacing();
+        ImGui.TextUnformatted("DPI Preset");
+        ImGui.Separator();
+        if (ImGui.RadioButton("1080p", dpi == 1080))
+        {
+            dpi = 1080;
+            changed = true;
+        }
+        ImGui.SameLine();
+        if (ImGui.RadioButton("1440p", dpi == 1440))
+        {
+            dpi = 1440;
+            changed = true;
+        }
+        ImGui.SameLine();
+        if (ImGui.RadioButton("4K", dpi == 2160))
+        {
+            dpi = 2160;
+            changed = true;
+        }
+
+        configuration.DpiHeight = dpi;
         if (isPaused != stateMachine.IsPaused)
         {
             stateMachine.SetPaused(isPaused);
@@ -266,18 +304,17 @@ public sealed class MusicBoxWindow : Window
     private void UpdatePersistedTransform()
     {
         var currentPosition = ImGui.GetWindowPos();
-        var currentSize = ImGui.GetWindowSize();
 
-        if (Vector2.DistanceSquared(configuration.WindowPosition, currentPosition) > 0.25f)
+        // Convert the current scaled values back to baseline (1440p) before persisting
+        var eff = GetEffectiveScale();
+        var baselinePos = currentPosition / eff;
+
+        if (Vector2.DistanceSquared(configuration.WindowPosition, baselinePos) > 0.25f)
         {
-            configuration.WindowPosition = currentPosition;
+            configuration.WindowPosition = baselinePos;
             RequestSave?.Invoke();
         }
-
-        if (Vector2.DistanceSquared(configuration.WindowSize, currentSize) > 0.25f)
-        {
-            configuration.WindowSize = currentSize;
-            RequestSave?.Invoke();
-        }
+        
+        // WindowSize saving has been removed as the window size is now firmly locked mathematically.
     }
 }

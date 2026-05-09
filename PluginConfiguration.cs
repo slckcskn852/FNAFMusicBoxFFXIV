@@ -19,6 +19,8 @@ public sealed class PluginConfiguration : IPluginConfiguration
 
     public float UiScale { get; set; } = 1.0f;
 
+    // Target vertical resolution for DPI scaling (1080, 1440, 2160)
+    public int DpiHeight { get; set; } = 1440;
     public float WindSpeed { get; set; } = 38f;
 
     public float DecaySpeed { get; set; } = 12f;

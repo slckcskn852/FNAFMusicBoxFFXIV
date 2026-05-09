@@ -106,12 +106,16 @@ Output will be in `dist/FNAFMusicBoxFFXIV.dll`
 
 ## Author
 
-Created for FFXIV Dalamud by ScSyn
+Created for Dalamud by ScSyn
 
 ## License
 
-This project is provided as-is for personal use with FFXIV.
+This project is provided as-is for personal use with Dalamud.
 
 ## Disclaimer
 
 This plugin is not affiliated with Square Enix or Scott Cawthon. Five Nights at Freddy's is a trademark of Scott Cawthon. This plugin is a fan-made project and is not affiliated with Scott Cawthon. Sounds and textures from Five Nights at Freddy's 2 are used under fair use/fan-content expectations and remain the property of the original creator.
+
+## AI Disclosure
+
+Built with AI using Copilot + Google Gemini.

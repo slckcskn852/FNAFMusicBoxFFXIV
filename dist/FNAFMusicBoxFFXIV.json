@@ -1,0 +1,16 @@
+{
+  "Author": "ScSyn",
+  "Name": "FNAF Music Box",
+  "InternalName": "FNAFMusicBoxFFXIV",
+  "AssemblyVersion": "1.0.0.0",
+  "Description": "FFXIV Dalamud overlay inspired by the FNAF 2 music box winding minigame.",
+  "ApplicableVersion": "any",
+  "RepoUrl": "https://example.com/FNAFMusicBoxFFXIV",
+  "DalamudApiLevel": 15,
+  "LoadRequiredState": 0,
+  "LoadSync": false,
+  "CanUnloadAsync": false,
+  "LoadPriority": 0,
+  "Punchline": "Wind the box before it runs out.",
+  "AcceptsFeedback": true
+}

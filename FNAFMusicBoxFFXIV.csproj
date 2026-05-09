@@ -1,0 +1,111 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <UsingMicrosoftNETSdk>true</UsingMicrosoftNETSdk>
+    <DalamudProjectDir>d:\Projects\FNAFMusicBoxFFXIV</DalamudProjectDir>
+    <Name>FNAF Music Box</Name>
+    <Author>ScSyn</Author>
+    <Description>FFXIV Dalamud overlay inspired by the FNAF 2 music box winding minigame.</Description>
+    <Punchline>Wind the box before it runs out.</Punchline>
+    <RepoUrl>https://example.com/FNAFMusicBoxFFXIV</RepoUrl>
+    <OutputPath>dist\</OutputPath>
+    <AssemblyName>FNAFMusicBoxFFXIV</AssemblyName>
+    <RootNamespace>FNAFMusicBoxFFXIV</RootNamespace>
+  </PropertyGroup>
+
+  <Import Project="$(MSBuildProjectDirectory)\Dalamud.NET.Sdk\Dalamud.NET.Sdk\Sdk\Sdk.props" />
+
+  <PropertyGroup>
+    <DalamudLibPath>C:\Users\slckc\AppData\Roaming\XIVLauncher\addon\Hooks\15.0.0.5\</DalamudLibPath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <LangVersion>latest</LangVersion>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+    <ProduceReferenceAssembly>false</ProduceReferenceAssembly>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="NAudio" Version="2.2.1" />
+  </ItemGroup>
+
+  <Import Project="$(MSBuildProjectDirectory)\Dalamud.NET.Sdk\Dalamud.NET.Sdk\Sdk\Sdk.targets" />
+
+  <ItemGroup>
+    <None Include="musicbox.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="failstate.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="windup.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="windupmusicbutton.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="fail.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+
+    <Reference Remove="Dalamud" />
+    <Reference Remove="Dalamud.Bindings.ImGui" />
+    <Reference Remove="Dalamud.Bindings.ImPlot" />
+    <Reference Remove="Dalamud.Bindings.ImGuizmo" />
+    <Reference Remove="FFXIVClientStructs" />
+    <Reference Remove="InteropGenerator.Runtime" />
+    <Reference Remove="Newtonsoft.Json" />
+    <Reference Remove="Lumina" />
+    <Reference Remove="Lumina.Excel" />
+    <Reference Remove="Serilog" />
+    <Reference Remove="Microsoft.Extensions.ObjectPool" />
+
+    <Reference Include="Dalamud">
+      <HintPath>$(DalamudLibPath)Dalamud.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Dalamud.Bindings.ImGui">
+      <HintPath>$(DalamudLibPath)Dalamud.Bindings.ImGui.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Dalamud.Bindings.ImPlot">
+      <HintPath>$(DalamudLibPath)Dalamud.Bindings.ImPlot.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Dalamud.Bindings.ImGuizmo">
+      <HintPath>$(DalamudLibPath)Dalamud.Bindings.ImGuizmo.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="FFXIVClientStructs">
+      <HintPath>$(DalamudLibPath)FFXIVClientStructs.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="InteropGenerator.Runtime">
+      <HintPath>$(DalamudLibPath)InteropGenerator.Runtime.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>$(DalamudLibPath)Newtonsoft.Json.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Lumina">
+      <HintPath>$(DalamudLibPath)Lumina.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Lumina.Excel">
+      <HintPath>$(DalamudLibPath)Lumina.Excel.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Serilog">
+      <HintPath>$(DalamudLibPath)Serilog.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.ObjectPool">
+      <HintPath>$(DalamudLibPath)Microsoft.Extensions.ObjectPool.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+</Project>

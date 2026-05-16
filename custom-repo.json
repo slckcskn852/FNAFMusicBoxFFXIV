@@ -4,15 +4,15 @@
     "Name": "FNAF Music Box",
     "Description": "FFXIV Dalamud overlay inspired by the FNAF 2 music box winding minigame.",
     "InternalName": "FNAFMusicBoxFFXIV",
-    "AssemblyVersion": "1.0.0.0",
+    "AssemblyVersion": "1.1.0.0",
     "ApplicableVersion": "any",
     "RepoUrl": "https://github.com/slckcskn852/FNAFMusicBoxFFXIV",
     "DalamudApiLevel": 15,
     "Punchline": "Wind the box before it runs out.",
     "IsHide": false,
     "IsTestingExclusive": false,
-    "DownloadLinkInstall": "https://github.com/slckcskn852/FNAFMusicBoxFFXIV/releases/download/1.0.0/latest.zip",
-    "DownloadLinkUpdate": "https://github.com/slckcskn852/FNAFMusicBoxFFXIV/releases/download/1.0.0/latest.zip",
+    "DownloadLinkInstall": "https://github.com/slckcskn852/FNAFMusicBoxFFXIV/releases/download/1.1.0/latest.zip",
+    "DownloadLinkUpdate": "https://github.com/slckcskn852/FNAFMusicBoxFFXIV/releases/download/1.1.0/latest.zip",
     "LastUpdate": "1715222400",
     "AcceptsFeedback": true
   }

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyDescriptionAttribute("FFXIV Dalamud overlay inspired by the FNAF 2 music box winding minigame.")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2eb338cfc9f3cdeef9d38cdae276e14b039e3102")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4b62346d0a09685c03cfc83e1efb855909e13417")]
 [assembly: System.Reflection.AssemblyProductAttribute("FNAFMusicBoxFFXIV")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FNAFMusicBoxFFXIV")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

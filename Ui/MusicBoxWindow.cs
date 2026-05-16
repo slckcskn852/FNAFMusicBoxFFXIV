@@ -2,6 +2,7 @@ using Dalamud.Interface.Windowing;
 using Dalamud.Bindings.ImGui;
 using Dalamud.Interface.Textures.TextureWraps;
 using Dalamud.Plugin.Services;
+using Dalamud.Game.ClientState.GamePad;
 using FNAFMusicBoxFFXIV.Model;
 using FNAFMusicBoxFFXIV.Audio;
 using System.Numerics;
@@ -17,21 +18,28 @@ public sealed class MusicBoxWindow : Window
     private const float WindButtonTopOffset = 31f;
     private const float WindButtonHeight = 86f;
     private const float SettingsPopupWidth = 230f;
+    private const float ControllerWindBurstSeconds = 0.12f;
 
     private readonly PluginConfiguration configuration;
     private readonly MusicBoxStateMachine stateMachine;
     private readonly IDalamudTextureWrap? windButtonTexture;
     private readonly MusicBoxAudioController audioController;
+    private readonly IGamepadState gamepadState;
+    private bool expectLeftTrigger = true;
+    private float controllerWindTimeRemaining;
+    private bool previousLeftTriggerHeld;
+    private bool previousRightTriggerHeld;
 
     public event Action? RequestSave;
 
-    public MusicBoxWindow(PluginConfiguration configuration, MusicBoxStateMachine stateMachine, IDalamudTextureWrap? windButtonTexture, MusicBoxAudioController audioController)
+    public MusicBoxWindow(PluginConfiguration configuration, MusicBoxStateMachine stateMachine, IDalamudTextureWrap? windButtonTexture, MusicBoxAudioController audioController, IGamepadState gamepadState)
         : base("Music Box")
     {
         this.configuration = configuration;
         this.stateMachine = stateMachine;
         this.windButtonTexture = windButtonTexture;
         this.audioController = audioController;
+        this.gamepadState = gamepadState;
 
         Flags = ImGuiWindowFlags.NoTitleBar
             | ImGuiWindowFlags.NoCollapse
@@ -171,7 +179,9 @@ public sealed class MusicBoxWindow : Window
         ImGui.InvisibleButton("##wind-button", boxSize);
 
         var hovered = ImGui.IsItemHovered();
-        var active = ImGui.IsItemActive();
+        var mouseActive = ImGui.IsItemActive();
+        var controllerActive = ConsumeControllerWindInput();
+        var active = mouseActive || controllerActive;
 
         stateMachine.SetWinding(active);
 
@@ -204,6 +214,37 @@ public sealed class MusicBoxWindow : Window
         {
             ImGui.OpenPopup("musicbox-settings");
         }
+    }
+
+    private bool ConsumeControllerWindInput()
+    {
+        var leftHeld = gamepadState.Raw(GamepadButtons.L2) > 0.5f;
+        var rightHeld = gamepadState.Raw(GamepadButtons.R2) > 0.5f;
+
+        var leftPressed = leftHeld && !previousLeftTriggerHeld;
+        var rightPressed = rightHeld && !previousRightTriggerHeld;
+
+        previousLeftTriggerHeld = leftHeld;
+        previousRightTriggerHeld = rightHeld;
+
+        if (expectLeftTrigger && leftPressed)
+        {
+            controllerWindTimeRemaining = ControllerWindBurstSeconds;
+            expectLeftTrigger = false;
+        }
+        else if (!expectLeftTrigger && rightPressed)
+        {
+            controllerWindTimeRemaining = ControllerWindBurstSeconds;
+            expectLeftTrigger = true;
+        }
+
+        if (controllerWindTimeRemaining <= 0f)
+        {
+            return false;
+        }
+
+        controllerWindTimeRemaining = MathF.Max(0f, controllerWindTimeRemaining - ImGui.GetIO().DeltaTime);
+        return true;
     }
 
     private void DrawSettingsPopup()

@@ -16,6 +16,7 @@ public sealed class Plugin : IDalamudPlugin
     private readonly ICommandManager commandManager;
     private readonly IPluginLog pluginLog;
     private readonly ITextureProvider textureProvider;
+    private readonly IGamepadState gamepadState;
     private readonly WindowSystem windowSystem = new("FNAFMusicBoxFFXIV");
     private readonly PluginConfiguration configuration;
     private readonly Model.MusicBoxStateMachine stateMachine = new();
@@ -29,12 +30,13 @@ public sealed class Plugin : IDalamudPlugin
 
     public string Name => "FNAF Music Box";
 
-    public Plugin(IDalamudPluginInterface pluginInterface, ICommandManager commandManager, IPluginLog pluginLog, ITextureProvider textureProvider)
+    public Plugin(IDalamudPluginInterface pluginInterface, ICommandManager commandManager, IPluginLog pluginLog, ITextureProvider textureProvider, IGamepadState gamepadState)
     {
         this.pluginInterface = pluginInterface;
         this.commandManager = commandManager;
         this.pluginLog = pluginLog;
         this.textureProvider = textureProvider;
+        this.gamepadState = gamepadState;
 
         configuration = pluginInterface.GetPluginConfig() as PluginConfiguration ?? new PluginConfiguration();
         
@@ -69,7 +71,7 @@ public sealed class Plugin : IDalamudPlugin
             pluginLog.Warning("fail.png could not be found at {Path}", failPath);
         }
 
-        musicBoxWindow = new Ui.MusicBoxWindow(configuration, stateMachine, windButtonTexture, audioController)
+        musicBoxWindow = new Ui.MusicBoxWindow(configuration, stateMachine, windButtonTexture, audioController, gamepadState)
         {
             IsOpen = configuration.IsVisible,
         };

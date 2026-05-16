@@ -15,7 +15,7 @@
   <Import Project="$(MSBuildProjectDirectory)\Dalamud.NET.Sdk\Dalamud.NET.Sdk\Sdk\Sdk.props" />
 
   <PropertyGroup>
-    <DalamudLibPath>C:\Users\slckc\AppData\Roaming\XIVLauncher\addon\Hooks\15.0.0.5\</DalamudLibPath>
+    <DalamudLibPath>C:\Users\slckc\AppData\Roaming\XIVLauncher\addon\Hooks\dev\</DalamudLibPath>
   </PropertyGroup>
 
   <PropertyGroup>

@@ -10,6 +10,9 @@
     <OutputPath>dist\</OutputPath>
     <AssemblyName>FNAFMusicBoxFFXIV</AssemblyName>
     <RootNamespace>FNAFMusicBoxFFXIV</RootNamespace>
+    <Version>1.1.0</Version>
+    <AssemblyVersion>1.1.0.0</AssemblyVersion>
+    <FileVersion>1.1.0.0</FileVersion>
   </PropertyGroup>
 
   <Import Project="$(MSBuildProjectDirectory)\Dalamud.NET.Sdk\Dalamud.NET.Sdk\Sdk\Sdk.props" />

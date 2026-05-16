@@ -303,13 +303,13 @@
     "C:\\Users\\slckc\\.nuget\\packages\\": {}
   },
   "project": {
-    "version": "1.0.0",
+    "version": "1.1.0",
     "restore": {
-      "projectUniqueName": "d:\\Projects\\FNAFMusicBoxFFXIV\\FNAFMusicBoxFFXIV.csproj",
+      "projectUniqueName": "D:\\Projects\\FNAFMusicBoxFFXIV\\FNAFMusicBoxFFXIV.csproj",
       "projectName": "FNAFMusicBoxFFXIV",
-      "projectPath": "d:\\Projects\\FNAFMusicBoxFFXIV\\FNAFMusicBoxFFXIV.csproj",
+      "projectPath": "D:\\Projects\\FNAFMusicBoxFFXIV\\FNAFMusicBoxFFXIV.csproj",
       "packagesPath": "C:\\Users\\slckc\\.nuget\\packages\\",
-      "outputPath": "d:\\Projects\\FNAFMusicBoxFFXIV\\obj\\",
+      "outputPath": "D:\\Projects\\FNAFMusicBoxFFXIV\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\slckc\\AppData\\Roaming\\NuGet\\NuGet.Config"

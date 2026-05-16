@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "d:\\Projects\\FNAFMusicBoxFFXIV\\FNAFMusicBoxFFXIV.csproj": {}
+    "D:\\Projects\\FNAFMusicBoxFFXIV\\FNAFMusicBoxFFXIV.csproj": {}
   },
   "projects": {
-    "d:\\Projects\\FNAFMusicBoxFFXIV\\FNAFMusicBoxFFXIV.csproj": {
-      "version": "1.0.0",
+    "D:\\Projects\\FNAFMusicBoxFFXIV\\FNAFMusicBoxFFXIV.csproj": {
+      "version": "1.1.0",
       "restore": {
-        "projectUniqueName": "d:\\Projects\\FNAFMusicBoxFFXIV\\FNAFMusicBoxFFXIV.csproj",
+        "projectUniqueName": "D:\\Projects\\FNAFMusicBoxFFXIV\\FNAFMusicBoxFFXIV.csproj",
         "projectName": "FNAFMusicBoxFFXIV",
-        "projectPath": "d:\\Projects\\FNAFMusicBoxFFXIV\\FNAFMusicBoxFFXIV.csproj",
+        "projectPath": "D:\\Projects\\FNAFMusicBoxFFXIV\\FNAFMusicBoxFFXIV.csproj",
         "packagesPath": "C:\\Users\\slckc\\.nuget\\packages\\",
-        "outputPath": "d:\\Projects\\FNAFMusicBoxFFXIV\\obj\\",
+        "outputPath": "D:\\Projects\\FNAFMusicBoxFFXIV\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\slckc\\AppData\\Roaming\\NuGet\\NuGet.Config"

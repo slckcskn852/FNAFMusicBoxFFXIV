@@ -2,7 +2,7 @@
 
 - **YouTube:** https://www.youtube.com/@Sc_Syn
 - **Twitch:** https://www.twitch.tv/scsyn
-
+CLICK THE IMAGE TO WATCH THE PLUGIN IN ACTION!
 [![Watch the video](https://img.youtube.com/vi/3oIYnT1b7z0/maxresdefault.jpg)](https://www.youtube.com/watch?v=3oIYnT1b7z0) 
 
 A lightweight Dalamud overlay that recreates the FNAF2 music-box winding minigame inside FFXIV.

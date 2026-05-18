@@ -22,7 +22,7 @@ A lightweight Dalamud overlay that recreates the FNAF2 music-box winding minigam
 - Recommended to increase the wind speed for controller usage.
 - Take care of your hands!
 
-## Features (short)
+## Features
 - Draggable, resizable overlay with circular meter and wind button
 - Looping music, wind-up SFX, and fail-state audio/visuals
 - Settings: opacity, scale, wind/decay speed, and volume
